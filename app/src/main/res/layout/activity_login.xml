@@ -9,8 +9,8 @@
     tools:context=".Login">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
         android:src="@drawable/shape" />
     <TextView
         android:layout_width="match_parent"
@@ -42,31 +42,31 @@
     <EditText
         android:id="@+id/tvUsername"
         android:imeOptions="actionNext"
-        android:layout_width="360dp"
+        android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
         android:paddingLeft="20dp"
         android:hint="Username"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:inputType="text"
         android:background="@drawable/input"/>
 
     <EditText
         android:id="@+id/tvPassword"
         android:imeOptions="actionDone"
-        android:layout_width="360dp"
+        android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_gravity="center_horizontal"
         android:paddingLeft="20dp"
         android:hint="Password"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="10dp"
         android:inputType="textPassword"
         android:background="@drawable/input"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:orientation="horizontal">
 
         <CheckBox
@@ -81,10 +81,10 @@
 
     <Button
         android:id="@+id/btnLogin"
-        android:layout_width="360dp"
+        android:layout_width="300dp"
         android:layout_height="70dp"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/login_btn"
         app:backgroundTint="@null"
         android:text="LOG IN"/>
@@ -111,19 +111,22 @@
             android:textStyle="bold"
             android:text=" Sign up"/>
     </LinearLayout>
+
     <LinearLayout
-        android:layout_marginTop="10dp"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:layout_marginTop="10dp">
+
         <ImageView
-            android:layout_marginLeft="150dp"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/logo_google"></ImageView>
+
         <ImageView
-            android:layout_marginLeft="20dp"
             android:layout_width="50dp"
             android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
             android:src="@drawable/logo_facebook"></ImageView>
     </LinearLayout>
 
