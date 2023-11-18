@@ -40,7 +40,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold" />
             <Spinner
-                android:id="@+id/tagSpinner"
+                android:id="@+id/spinner"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
@@ -50,21 +50,28 @@
                 android:textColor="@color/white" />
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="320dp"
                 android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
                 android:layout_marginLeft="10dp"
-                android:orientation="horizontal"
-                android:background="#EEEEEE">
+                android:background="@drawable/vien"
+                android:orientation="horizontal">
+
                 <Button
-                    android:id="@+id/uploadVideo_btn"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Upload Video"></Button>
+                    android:onClick="openVideoFiles"
+                    android:id="@+id/upload_video_btn"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_gravity="clip_vertical"
+                    android:background="@drawable/icon_upload_24" />
+
                 <TextView
+                    android:layout_gravity="center_vertical"
                     android:id="@+id/textVideoSelected"
-                    android:layout_width="match_parent"
+                    android:layout_width="181dp"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
+                    android:background="@drawable/vien"
                     android:text="No video select"
                     android:textSize="15sp" />
             </LinearLayout>
@@ -79,10 +86,16 @@
                     android:layout_weight="1"
                     android:hint="Enter video description" />
             </LinearLayout>
+
             <Button
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Upload"
-                android:id="@+id/btnUpload"></Button>
-            </LinearLayout>
+                android:onClick="uploadFileToFireBase"
+                android:id="@+id/btnUpload"
+                android:layout_width="300dp"
+                android:layout_height="70dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/login_btn"
+                android:text="UPLOAD"
+                app:backgroundTint="@null" />
+        </LinearLayout>
 </LinearLayout>
