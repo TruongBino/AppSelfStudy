@@ -3,6 +3,7 @@ package com.example.appselfstudy;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -17,13 +18,17 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.appselfstudy.models.videoUploadDetails;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -49,12 +54,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     DatabaseReference referenceVideos;
     EditText video_description;
     private ImageButton btn_SignOut;
-
+    private CardView userDetails;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // user
+        userDetails = (CardView) findViewById(R.id.userDetail);
+        userDetails.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, UserActivity.class);
+            startActivity(intent);
+        });
         text_video_selected = findViewById(R.id.textVideoSelected);
         video_description = findViewById(R.id.video_Description);
         referenceVideos = FirebaseDatabase.getInstance().getReference().child("videos");
@@ -81,13 +92,14 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                 // Đăng xuất người dùng
                 FirebaseAuth.getInstance().signOut();
                 // Sau khi đăng xuất, chuyển người dùng đến màn hình đăng nhập hoặc màn hình chính khác
-                Intent intent = new Intent(MainActivity.this, Register.class);
+                Intent intent = new Intent(MainActivity.this, Login.class);
                 startActivity(intent);
                 finish(); // Đóng Activity hiện tại
             }
         });
     }
 
+    // Chuc nang up load anh
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
         videoCategory = adapterView.getItemAtPosition(i).toString();
